@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+### Postgres Database ###
+  postgres:
+    image: postgres:10.4
+    ports:
+      - "35000:5432"
+    environment: 
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db
+### Postgres Adminer ###
+  postgres_admin:
+    image: dpage/pgadmin4:4.28
+    depends_on:
+      - postgres
+    environment: 
+      PGADMIN_DEFAULT_EMAIL: admin@admin.de
+      PGADMIN_DEFAULT_PASSWORD: password
+    ports:
+      - "5050:80"
+### API Spring Boot ###
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: ./spring-boot-dockerized/
+    depends_on: 
+      - postgres
+    environment: 
+      DATABASE_URL: postgresql://postgres:5432/db
+      DATABASE_USER: user
+      DATABASE_PASSWORD: password
+    ports:
+      - "8080:3100"

@@ -1,8 +1,13 @@
 # Content Video 1
 Dockerize a Java Spring Boot Starter Template
 
-<<link to youtube video>>
+https://www.youtube.com/watch?v=EwwkEDz3VeE
 (published on 19th of November 2020)
+
+# Content Video 2
+- Add a docker-compose file and run also a postgres db and postgres adminer
+- Connect with Spring Boot to the db
+- Post Data && Get Data over http (to Spring Boot) and then save it in the db  
 
 # You need
 - Java
@@ -10,7 +15,13 @@ Dockerize a Java Spring Boot Starter Template
 - Docker
 - Spring Initiliazr (e.g. in Spring Initializr Extension in VsCode or https://start.spring.io/)
 
+# Start Commands for docker-compose file
+Builds, (re)creates, starts, and attaches to containers for a service.  
+`docker-compose up`
+
 # Start Commands for Docker
+Please follow the 1st Video, because due to docker-compose there are some changes  
+
 Build your image:  
 `docker build <your path> -t <<user>/project-name>`  
 
